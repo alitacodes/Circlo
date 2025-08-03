@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Glassmorphism Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', 'Space Grotesk', sans-serif;
+    background: #FFFFFF;
+    color: #1A1A1A;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #F2F2F2;
+    border-radius: 4px;
+  }
+  
+  /* Hide scrollbar for category section */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #FFD700, #FFB800);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FFD700;
+  }
+}
+
+/* Glassmorphism Component Classes */
+@layer components {
+  .glass-card {
+    @apply bg-gradient-glass backdrop-blur-glass border border-white/20 shadow-glass;
+  }
+  
+  .glass-card-dark {
+    @apply bg-gradient-glass-dark backdrop-blur-glass border border-circlo-black/10 shadow-glass-dark;
+  }
+  
+  .glass-button {
+    @apply bg-circlo-glass backdrop-blur-glass border border-white/30 shadow-glass 
+           hover:shadow-glass-hover transition-all duration-300 transform hover:scale-105;
+  }
+  
+  .glass-input {
+    @apply bg-circlo-glass backdrop-blur-glass border border-white/20 shadow-glass
+           placeholder:text-circlo-black/60 focus:border-circlo-yellow/50 focus:shadow-glass-hover;
+  }
+  
+  .floating-glass {
+    @apply fixed z-50 bg-circlo-glass backdrop-blur-glass border border-white/20 shadow-glass;
+  }
+  
+  .sticky-glass {
+    @apply sticky top-0 z-40 bg-circlo-glass backdrop-blur-glass border-b border-white/20 shadow-glass;
+  }
+  
+  .hero-glass-center {
+    @apply bg-circlo-glass backdrop-blur-glass border border-white/30 shadow-glass-hover
+           rounded-glass-lg p-8 transform hover:scale-105 transition-all duration-500;
+  }
+  
+  .category-glass-tile {
+    @apply bg-circlo-glass backdrop-blur-glass border border-white/20 shadow-glass
+           rounded-glass hover:shadow-glass-hover transition-all duration-300
+           hover:backdrop-blur-glass-lg hover:bg-white/30;
+  }
+  
+  .testimonial-glass {
+    @apply bg-circlo-glass backdrop-blur-glass border border-white/20 shadow-glass
+           rounded-glass-lg overflow-hidden hover:shadow-glass-hover transition-all duration-300;
+  }
+  
+  .glass-counter {
+    @apply bg-circlo-glass backdrop-blur-glass border border-white/30 shadow-glass
+           rounded-glass text-center p-6 hover:shadow-glass-hover transition-all duration-300;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-gold bg-clip-text text-transparent;
+  }
+  
+  .glow-border {
+  @apply border-2 border-circlo-yellow shadow-lg shadow-yellow-400/30;
+}
+
+  
+  /* Dark mode variants */
+  .dark .glass-card {
+    @apply bg-circlo-glass-dark border-circlo-black/20 shadow-glass-dark;
+  }
+  
+  .dark .glass-button {
+    @apply bg-circlo-glass-dark border-circlo-black/30 shadow-glass-dark;
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  .text-shadow-glow {
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  }
+  
+  .backdrop-saturate {
+    backdrop-filter: saturate(180%);
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+  
+  /* Animation utilities */
+  .animate-float-delay-1 {
+    animation: float 6s ease-in-out infinite 1s;
+  }
+  
+  .animate-float-delay-2 {
+    animation: float 6s ease-in-out infinite 2s;
+  }
+  
+  .animate-sparkle-delay-1 {
+    animation: sparkle 1.5s ease-in-out infinite 0.5s;
+  }
+  
+  .animate-sparkle-delay-2 {
+    animation: sparkle 1.5s ease-in-out infinite 1s;
+  }
+}
+
+/* Special Effects */
+.orbit-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.orbit-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 100px 0;
+}
+
+/* Lenis smooth scroll */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
