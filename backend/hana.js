@@ -1,20 +1,6 @@
-// backend/hana.js - Debug version to check environment variables
+// backend/hana.js - Fixed with proper async connection handling
 require("dotenv").config();
 const hana = require("@sap/hana-client");
-
-// Add debug logging to see what environment variables are loaded
-console.log("🔍 Environment variables check:");
-console.log("HANA_HOST:", process.env.HANA_HOST);
-console.log("HANA_PORT:", process.env.HANA_PORT);
-console.log("HANA_USER:", process.env.HANA_USER);
-console.log("HANA_PASSWORD:", process.env.HANA_PASSWORD ? "***SET***" : "NOT SET");
-
-// Add debug logging to see what environment variables are loaded
-console.log("🔍 Environment variables check:");
-console.log("HANA_HOST:", process.env.HANA_HOST);
-console.log("HANA_PORT:", process.env.HANA_PORT);
-console.log("HANA_USER:", process.env.HANA_USER);
-console.log("HANA_PASSWORD:", process.env.HANA_PASSWORD ? "***SET***" : "NOT SET");
 
 function getConnection() {
   const conn = hana.createConnection();
@@ -58,7 +44,6 @@ function getConnectionAsync() {
     };
 
     console.log("🔍 Attempting async connection...");
-    console.log("🔍 ServerNode being used:", connParams.serverNode);
 
     conn.connect(connParams, (err) => {
       if (err) {
